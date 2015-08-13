@@ -7,14 +7,53 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="container">
+  <!--   Navigation bar start -->
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <ul class="nav nav-pills">
+          <li>
+            <%= link_to "Home", welcome_home_path%>
+          </li>
+          <li>
+            <%= link_to "About Us", welcome_about_path%>
+          </li>
+          <li>
+             <%= link_to "Contact", welcome_contact_path%>
+          </li>
+          <li>
+             <%= link_to "Leads", leads_path%>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<!--   Navigation bar end -->
+ 
   
-<!--   Navigation bar start -->
-  <%= link_to "Home", welcome_home_path%>
-  <%= link_to "About Us", welcome_about_path%>
-  <%= link_to "Contact", welcome_contact_path%>
-  <%= link_to "Leads", leads_path%>
-  <!--   Navigation bar end -->
+  
+ 
+  
+  <% if flash[:notice] %>
+  <div class="alert alert-success">
+    <button type="button" clase="close" data-dismiss="alert">&times;</button>
+    <%= flash[:notice] %>
+  </div>
+  <% elsif flash[:error] %>
+  <div class="alert alert-error">
+    <button type="button" clase="close" data-dismiss="alert">&times;</button>
+    <%= flash[:error] %>
+  </div>
+  <% elsif flash[:alert] %>
+  <div class="alert">
+    <button type="button" clase="close" data-dismiss="alert">&times;</button>
+    <%= flash[:alert] %>
+  </div>
+  <% end %>
+  
+  
 <%= yield %>
-
+</div>
 </body>
 </html>
