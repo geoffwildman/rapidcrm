@@ -4,7 +4,14 @@ class LeadsController < ApplicationController
   # GET /leads
   # GET /leads.json
   def index
-    @leads = Lead.all
+    @search = LeadSearch.new(params[:search])
+    @leads = @search.scope
+    
+    #@leads = Lead.all
+    respond_to do |format|
+      format.html
+      format.csv { render text: @leads.to_csv}
+    end
   end
   
   def import
@@ -74,6 +81,6 @@ class LeadsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lead_params
-      params.require(:lead).permit(:name, :company, :location, :phone)
+      params.require(:lead).permit(:name, :company, :location, :phone, :date)
     end
 end
