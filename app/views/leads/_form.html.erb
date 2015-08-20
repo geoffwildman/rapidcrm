@@ -12,28 +12,28 @@
       </div>
     <% end %>
 
-    <div class="field">
+    <div class="form-group">
       <%= f.label :name %><br>
-      <%= f.text_field :name %>
+      <%= f.text_field :name, class: 'form-control'%>
     </div>
-    <div class="field">
+    <div class="form-group">
       <%= f.label :company %><br>
-      <%= f.text_field :company %>
+      <%= f.text_field :company, class: 'form-control' %>
     </div>
-    <div class="field">
+    <div class="form-group">
       <%= f.label :location %><br>
-      <%= f.text_field :location %>
+      <%= f.text_field :location, class: 'form-control' %>
     </div>
-    <div class="field">
+    <div class="form-group">
       <%= f.label :phone %><br>
-      <%= f.number_field :phone %>
+      <%= f.number_field :phone, class: 'form-control' %>
     </div>
-    <div class="field">
+    <div class="form-group">
       <%= f.label :date %><br>
-      <%= f.text_field :date %>
+      <%= f.text_field :date, class: 'form-control' %>
     </div>
     <div class="actions">
-      <%= f.submit %>
+      <%= f.submit "Create", class: 'btn btn-default' %>
     </div>
   <% end %>
 <% end %>
